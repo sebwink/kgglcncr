@@ -7,8 +7,8 @@ import zipfile
 
 import pandas as pd
 
-#DEFAULT_KGGLCNCR_DATA_PATH = '/share/projects/TaskForce_ML/kaggle_personalized_medicine/'
-DEFAULT_KGGLCNCR_DATA_PATH = '/home/sebastian/prjcts/kgglcncr/data'
+DEFAULT_KGGLCNCR_DATA_PATH = '/share/projects/TaskForce_ML/kaggle_personalized_medicine/data'
+#DEFAULT_KGGLCNCR_DATA_PATH = '/home/sebastian/prjcts/kgglcncr/data'
 
 ################################################################################
 # Import text data #############################################################
