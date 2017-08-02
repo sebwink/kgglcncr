@@ -20,32 +20,19 @@ def import_text_data_as_dataframe(path):
     'training_text' and 'test_text', into RAM as Pandas
     dataframe.
 
-    Pandas not directly applicable since for some odd
-    reason it cannot handle the '||' as sep-argument...
-
     Args:
         path (str): The path of the zip file containing the text data
 
     Returns:
         pd.DataFrame: Pandas dataframe with ID and Text column
     '''
-    name_of_file = os.path.splitext(os.path.basename(path))[0]
-    with zipfile.ZipFile(path) as zipf:
-        with zipf.open(name_of_file, 'r') as f:
-            _ = f.readline() # header
-            data = [line.split(b'||') for line in f]
-            IDs, texts = zip(*data)
-            IDs = [int(ID) for ID in IDs]
-            texts = [text.decode('utf-8').strip() for text in texts]
-            return pd.DataFrame({'ID': IDs, 'Text': texts})
+    # taken from notebooks/kagglePersonalizedMedicine_01_importToPandas
+    return pd.read_csv("../data/training_text", sep="\|\|", engine="python", skiprows=1, names=["ID", "Text"])
 
 def import_text_data_as_generator(path):
     '''
     Read challenge text data, i.e. data organized like
     'training_text' and 'test_text', as Python generator.
-
-    Pandas not directly applicable since for some odd
-    reason it cannot handle the '||' as sep-argument...
 
     Args:
         path (str): The path of the zip file containing the text data
