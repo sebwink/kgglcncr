@@ -7,8 +7,8 @@ import zipfile
 
 import pandas as pd
 
-DEFAULT_KGGLCNCR_DATA_PATH = '/share/projects/TaskForce_ML/kaggle_personalized_medicine/data'
-#DEFAULT_KGGLCNCR_DATA_PATH = '/home/sebastian/prjcts/kgglcncr/data'
+#DEFAULT_KGGLCNCR_DATA_PATH = '/share/projects/TaskForce_ML/kaggle_personalized_medicine/data'
+DEFAULT_KGGLCNCR_DATA_PATH = '/home/sebastian/prjcts/kgglcncr/data'
 
 ################################################################################
 # Import text data #############################################################
@@ -27,7 +27,7 @@ def import_text_data_as_dataframe(path):
         pd.DataFrame: Pandas dataframe with ID and Text column
     '''
     # taken from notebooks/kagglePersonalizedMedicine_01_importToPandas
-    return pd.read_csv("../data/training_text", sep="\|\|", engine="python", skiprows=1, names=["ID", "Text"])
+    return pd.read_csv(path, sep="\|\|", engine="python", skiprows=1, names=["ID", "Text"])
 
 def import_text_data_as_generator(path):
     '''
