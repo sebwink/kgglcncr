@@ -102,7 +102,7 @@ def lower_case(text_data):
 def remove_patterns(text_data, pattern_list=None):
 
     class PatternRemover(object):
-        default_patterns = ['.', ',', ':', '?', '!', '(', ')', ';']
+        default_patterns = ['.', ',', ':', '?', '!', '(', ')', ';', '[-,+]?[0-9]+']
         escape_patterns = ['.', ',', ':', '(', ')', '[', ']', '{', '}', '?', '!', '*']
         def __init__(self, pattern_list):
             if pattern_list is None:

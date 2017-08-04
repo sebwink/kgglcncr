@@ -10,7 +10,7 @@ def gensim_tfidf_vectorizer(tokenized_text_data, dictionary, normalize=True, as_
     model = gensim.models.TfidfModel(corpus, normalize=normalize, **kwargs)
     corpus = model[corpus]
     if as_array:
-        return model, gensim.matutils.corpus2dense(corpus, num_docs=len(tokenized_text_data), num_terms=len(dictionary)).T
+        return model, gensim.matutils.corpus2csc(corpus, num_docs=len(tokenized_text_data), num_terms=len(dictionary)).T
     else:
         return model, corpus
 
